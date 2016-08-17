@@ -51,6 +51,7 @@ This is the New Relic plugin for monitoring Sidekiq developed by Falconer Develo
   ## that are needed for an end user to actually USE your code.  
   s.add_dependency('newrelic_plugin', "1.3.1")
   s.add_dependency('sidekiq', ">= 2.13.0")
+  s.add_dependency('daemons')
 
   ## Leave this section as-is. It will be automatically generated from the
   ## contents of your Git repository via the gemspec task. DO NOT REMOVE

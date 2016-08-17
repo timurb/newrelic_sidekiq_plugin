@@ -1,10 +1,12 @@
-#! /usr/bin/env ruby
+#! /usr/bin/env ruby -Ilib:../lib
 
 require "rubygems"
 require "bundler/setup"
-require "#{File.expand_path('../../',__FILE__)}/lib/newrelic_sidekiq_agent"
+require "newrelic_sidekiq_agent"
 
 module SidekiqAgent
+
+  NewRelic::Plugin::Config.config_file = File.join( File.dirname(__FILE__), '../config/newrelic_plugin.yml' )
 
   #
   # Register this agent with the component.

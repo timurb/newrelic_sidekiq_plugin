@@ -3,6 +3,7 @@
 #
 require "newrelic_plugin"
 require "sidekiq"
+require "sidekiq/api"
 
 module SidekiqAgent
   class Agent < NewRelic::Plugin::Agent::Base
