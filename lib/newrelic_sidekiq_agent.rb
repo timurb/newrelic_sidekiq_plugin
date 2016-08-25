@@ -9,10 +9,18 @@ module SidekiqAgent
   class Agent < NewRelic::Plugin::Agent::Base
 
 
-    agent_guid "com.getdropstream.sidekiq"
+    agent_guid "com.whitespectre.sidekiq"
     agent_version "0.0.4"
-    agent_config_options :namespace, :url
-    agent_human_labels("Sidekiq Agent") { "Sidekiq Agent" }
+    agent_config_options :instance_name, :namespace, :url
+    agent_human_labels('Sidekiq Agent') do
+      if instance_name == nil
+        host = Socket.gethostname().sub(/\..*/, '')
+        uri = URI.parse("#{url}")
+        "#{host}:#{uri.port || 6379}"
+      else
+        "#{instance_name}"
+      end
+    end
     
     attr_reader :ident
 

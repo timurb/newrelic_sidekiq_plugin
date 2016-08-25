@@ -1,4 +1,4 @@
-#! /usr/bin/env ruby -Ilib:../lib
+#! /usr/bin/env /usr/bin/ruby2.2 -Ilib:../lib
 
 require "rubygems"
 require "bundler/setup"
